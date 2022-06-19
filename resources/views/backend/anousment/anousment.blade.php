@@ -25,6 +25,7 @@
     @endforeach
    
 </table>
+{{ $anousment->links() }}
 
 	
 </div>

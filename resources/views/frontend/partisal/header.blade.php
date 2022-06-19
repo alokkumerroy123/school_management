@@ -5,9 +5,9 @@
 
         @if(auth()->user())
         <a class="nav-link" href="{{route('student.profile')}}">Profile</a>
-        <a class="nav-link" href="{{route('logout')}}">Logout</a>
         <a class="nav-link" href="{{route('teacher.list')}}">Teacher</a>
         <a class="nav-link" href="{{route('school.notic')}}">Notic</a>
+        <a class="nav-link" href="{{route('logout')}}">Logout</a>
         @else
         <a class="nav-link" href="{{route('rge')}}">Registration</a>
         <a class="nav-link" href="{{route('login')}}">Login</a>

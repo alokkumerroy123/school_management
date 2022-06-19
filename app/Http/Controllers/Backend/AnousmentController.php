@@ -11,7 +11,7 @@ class AnousmentController extends Controller
 {   
     //add anousment page view
     public function index(){
-        $anousment=Anousment::all();
+        $anousment=Anousment::paginate(3);
         return view('backend.anousment.anousment',compact('anousment'));
     }
     

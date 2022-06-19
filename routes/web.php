@@ -41,6 +41,9 @@ Route::get('/school/notic',[UserController::class,'notic'])->name('school.notic'
 
 //student profile show
 Route::get('/student/profile',[UserController::class,'student'])->name('student.profile');
+//profile deit
+Route::post('/student/profile',[UserController::class,'update']);
+
 
 //logout route
 Route::get('logout',[LoginController::class,'logout'])->name('logout');

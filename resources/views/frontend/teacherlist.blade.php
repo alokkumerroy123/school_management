@@ -30,4 +30,6 @@
   </tbody>
   @endforeach
 </table>
+{{ $teacher->links() }}
+</div>
 @endsection

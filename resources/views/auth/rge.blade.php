@@ -5,7 +5,7 @@
 				<div class="col-md-3"></div>
 				<div class="col-md-6 mt-5">
 					<h1 class="text-center md-3">Regestration</h1>
-					<form action="" method="post">
+					<form action="" method="post" enctype="multipart/form-data">
 						@csrf
 						  <div class="mb-3">
     <label for="name" class="form-label">Name</label>
@@ -53,7 +53,16 @@
     <div class="mb-3">
     <label for="c_password" class="form-label">Confirm Password</label>
     <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm password" >
-    
+  </div>
+
+  
+  <div class="mb-3">
+    <label for="photo" class="form-label">Photo</label>
+     <input type="file" class="form-control" id="photo" name="photo">
+      @error('photo')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
+   
   </div>
  
   <button type="submit" class="btn btn-primary">Submit</button>

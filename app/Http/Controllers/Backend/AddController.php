@@ -12,7 +12,7 @@ class AddController extends Controller
     //teacher list page view
     public function index(){
 
-        $teacher=Teacher::paginate(5);
+        $teacher=Teacher::paginate(4);
         return view('backend.teacher.teacher',compact('teacher'));
     }
 
