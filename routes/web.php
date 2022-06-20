@@ -7,6 +7,8 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RgeController;
 use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\Frontend\AboutschoolController;
+use App\Http\Controllers\Frontend\ConnectController;
 use App\Http\Controllers\Backend\AnousmentController;
 
 /*
@@ -22,6 +24,8 @@ use App\Http\Controllers\Backend\AnousmentController;
 
 //frontend
 Route::get('/',[HomeController::class,'index'])->name('home');
+//about school page view
+Route::get('/abou/school',[AboutschoolController::class,'index'])->name('about.school');
 
 //login page view
 Route::get('login',[LoginController::class,'index'])->name('login');
@@ -33,6 +37,9 @@ Route::post('rge',[RgeController::class,'dorge']);
 
 
 Route::middleware('auth')->group(function(){
+
+//connect page view
+Route::get('/student/connect',[ConnectController::class,'index'])->name('student.connect');
 
 //student see teacher list
 Route::get('/teacherlist',[UserController::class,'index'])->name('teacher.list');
