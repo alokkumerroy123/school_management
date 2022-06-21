@@ -40,6 +40,8 @@ Route::middleware('auth')->group(function(){
 
 //connect page view
 Route::get('/student/connect',[ConnectController::class,'index'])->name('student.connect');
+//connect page data submit
+Route::post('/student/connect',[ConnectController::class,'connect']);
 
 //student see teacher list
 Route::get('/teacherlist',[UserController::class,'index'])->name('teacher.list');
@@ -50,14 +52,16 @@ Route::get('/school/notic',[UserController::class,'notic'])->name('school.notic'
 Route::get('/student/profile',[UserController::class,'student'])->name('student.profile');
 //profile deit
 Route::post('/student/profile',[UserController::class,'update']);
-
-
 //logout route
 Route::get('logout',[LoginController::class,'logout'])->name('logout');
+
+
 
 Route::middleware('IsAdmin')->prefix('dashboard')->group(function(){
 
 
+//show student message
+Route::get('show/message',[ConnectController::class,'message'])->name('show.message');
 //anousment page view
 Route::get('/anousment',[AnousmentController::class,'index'])->name('anousment');
 //add new anousment page view

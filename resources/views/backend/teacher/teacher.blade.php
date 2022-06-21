@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 @section('main')
 <div class="mt-3">
-    <h2 class="text-center">Lalmonirhat Gov School Teacher List</h2>
+    <h2 class="text-center"><marquee class="btn btn-success">Lalmonirhat Gov School Teacher List</marquee></h2>
     <br><br>
     <a href="{{route('new.teacher')}}" class="btn btn-success">Add New Teacher</a>
     <table class="table">

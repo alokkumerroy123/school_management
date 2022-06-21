@@ -13,9 +13,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-          Add Student
+            <a class="nav-link" href="{{route('anousment')}}">
+              <span data-feather="bar-chart-2"></span>
+              Notice Board
+            </a>
+          </li>
+            
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('show.message')}}">
+              <span data-feather="layers"></span>
+              Message
             </a>
           </li>
           <li class="nav-item">
@@ -24,18 +31,7 @@
               Class Routen
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('anousment')}}">
-              <span data-feather="bar-chart-2"></span>
-              Notice Board
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Integrations
-            </a>
-          </li>
+       
         </ul>
 
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
