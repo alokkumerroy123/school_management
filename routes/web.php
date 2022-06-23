@@ -10,6 +10,7 @@ use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Frontend\AboutschoolController;
 use App\Http\Controllers\Frontend\ConnectController;
 use App\Http\Controllers\Backend\AnousmentController;
+use App\Http\Controllers\Frontend\ChangePassword;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::post('login',[LoginController::class,'login']);
 //registration
 Route::get('rge',[RgeController::class,'index'])->name('rge');
 Route::post('rge',[RgeController::class,'dorge']);
-
+  
 
 Route::middleware('auth')->group(function(){
 

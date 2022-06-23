@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Connect;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ConnectMail;
+
 
 class ConnectController extends Controller
 {
@@ -21,7 +24,8 @@ class ConnectController extends Controller
             'message'=>$request->input('message'),
         ];
 
-        Connect::create($inputs);
+        $ovejog=Connect::create($inputs);
+        Mail::to(auth()->user()->email)->send(new ConnectMail($ovejog));
         return redirect()->route('home');
     }
 
