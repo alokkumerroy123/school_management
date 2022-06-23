@@ -39,7 +39,7 @@ public function update(Request $request){
       'name' => 'required',
       'phone' => 'required',
       'address' => 'required',
-      'photo'=>'image',
+      'photo'=>'image|required',
       
   ]);
 
@@ -57,6 +57,7 @@ public function update(Request $request){
       'address'=>$request->input('address'),
       'photo'=>$newName,
   ];
+ 
   $user->update($inputs);
   return redirect()->back();
 

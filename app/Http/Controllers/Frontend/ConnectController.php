@@ -12,6 +12,7 @@ use App\Mail\ConnectMail;
 class ConnectController extends Controller
 {
     //connect page view
+    //sendin mail
     public function index(){
         return view('frontend.connect');
     }
@@ -33,5 +34,13 @@ class ConnectController extends Controller
     public function message(){
         $ovejog=Connect::paginate(3);
         return view('backend.teacher.showmessage',compact('ovejog'));
+    }
+
+    //admin delete student message
+    public function delete($id){
+        $ovejog=Connect::find($id);
+        $ovejog->delete();
+        return redirect()->route('show.message');
+    
     }
 }

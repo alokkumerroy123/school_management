@@ -60,7 +60,8 @@ Route::get('logout',[LoginController::class,'logout'])->name('logout');
 
 Route::middleware('IsAdmin')->prefix('dashboard')->group(function(){
 
-
+//admin delete message
+Route::get('show/{id}/delete',[ConnectController::class,'delete'])->name('message.delete');
 //show student message
 Route::get('show/message',[ConnectController::class,'message'])->name('show.message');
 //anousment page view

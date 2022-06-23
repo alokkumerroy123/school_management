@@ -11,6 +11,7 @@
       <th scope="col">Email</th>
       <th scope="col">Subject</th>
       <th scope="col">Message</th>
+      <th scope="col">Action</th>
 
     </tr>
   </thead>
@@ -22,6 +23,9 @@
       <td>{{$ovejogs->email}}</td>
       <td>{{$ovejogs->subject}}</td>
       <td>{{$ovejogs->message}}</td>
+      <td>
+      <a href="{{route('message.delete',$ovejogs->id)}}" class="btn btn-danger">Delete</a>
+      </td>
     </tr>
     @endforeach
   </tbody>
