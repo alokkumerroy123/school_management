@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 @section('main')
 <div class="mt-3">
-	<h2 class="text-center">Add School Anousment </h2>
+	<h2 class="text-center"> School Notic Board </h2>
 	<a href="{{route('add.anousment')}}" class="btn btn-success">Add New Anousment</a>
 	<table class="table">
   <thead>

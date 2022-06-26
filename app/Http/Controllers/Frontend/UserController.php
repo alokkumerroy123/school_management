@@ -8,6 +8,7 @@ use App\Models\Teacher;
 use App\Models\Anousment;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use App\Models\Routin;
 
 class UserController extends Controller
 {   
@@ -64,5 +65,10 @@ public function update(Request $request){
 
 }
 
+//show routin
+public function routin(){
+  $routin=Routin::paginate(3);
+  return view('frontend.showroutin',compact('routin'));
+}
 
 }

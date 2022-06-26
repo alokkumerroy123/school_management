@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\AddController;
+use App\Http\Controllers\Backend\RoutinController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RgeController;
@@ -39,6 +40,8 @@ Route::post('rge',[RgeController::class,'dorge']);
 
 Route::middleware('auth')->group(function(){
 
+//show routin
+Route::get('/show/routin',[UserController::class,'routin'])->name('student.routin');
 //connect page view
 Route::get('/student/connect',[ConnectController::class,'index'])->name('student.connect');
 //connect page data submit
@@ -59,6 +62,15 @@ Route::get('logout',[LoginController::class,'logout'])->name('logout');
 
 
 Route::middleware('IsAdmin')->prefix('dashboard')->group(function(){
+
+//Routin
+//admin show routin 
+Route::get('/routin',[RoutinController::class,'index'])->name('routin');
+//add routin
+Route::get('/add/routin',[RoutinController::class,'routin'])->name('add.routin');
+Route::post('/add/routin',[RoutinController::class,'upload']);
+//delete routin
+Route::get('/routin/{id}/delete',[RoutinController::class,'delete'])->name('delete.routin');
 
 //admin delete message
 Route::get('show/{id}/delete',[ConnectController::class,'delete'])->name('message.delete');

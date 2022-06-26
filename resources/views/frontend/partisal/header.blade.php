@@ -9,6 +9,7 @@
         <a class="nav-link" href="{{route('student.connect')}}"><div class="btn btn-info">যোগাযোগ</div></a>
         <a class="nav-link" href="{{route('teacher.list')}}"><div class="btn btn-info">
 শিক্ষক</div></a>
+<a class="nav-link" href="{{route('student.routin')}}"><div class="btn btn-info">রুটিন</div></a>
         <a class="nav-link" href="{{route('logout')}}"><div class="btn btn-info">Logout</div></a>
         @else
         <a class="nav-link" href="{{route('rge')}}"><div class="btn btn-primary">Registration</div></a>
