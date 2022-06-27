@@ -11,6 +11,7 @@ use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Frontend\AboutschoolController;
 use App\Http\Controllers\Frontend\ConnectController;
 use App\Http\Controllers\Backend\AnousmentController;
+use App\Http\Controllers\Backend\StudentController;
 use App\Http\Controllers\Frontend\ChangePassword;
 
 /*
@@ -62,6 +63,13 @@ Route::get('logout',[LoginController::class,'logout'])->name('logout');
 
 
 Route::middleware('IsAdmin')->prefix('dashboard')->group(function(){
+    
+    //add student view route
+    Route::get('student',[StudentController::class,'index'])->name('student.list');
+    //submit student info
+    Route::post('student',[StudentController::class,'about']);
+  
+    
 
 //Routin
 //admin show routin 

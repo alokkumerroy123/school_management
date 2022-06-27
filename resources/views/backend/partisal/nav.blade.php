@@ -31,6 +31,12 @@
               Class Routen
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('student.list')}}">
+              <span data-feather="users"></span>
+              Add New Student
+            </a>
+          </li>
        
         </ul>
 

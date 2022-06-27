@@ -18,6 +18,10 @@ class User extends Authenticatable
      */
     protected $guarded=[];
 
+    public function student(){
+        return $this->belongsTo(Student::class);
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
