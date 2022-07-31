@@ -2,18 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+//use App\Http\Controllers\Api\TeacherController;
+use App\Http\Controllers\Api\TeacherController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('teachers',[TeacherController::class,'index']);
+Route::get('teachers/show/{id}',[TeacherController::class,'show']);
+Route::post('teachers/store',[TeacherController::class,'store']);
+Route::post('teachers/update/{id}',[TeacherController::class,'update']);
+Route::get('teachers/delete/{id}',[TeacherController::class,'delete']);

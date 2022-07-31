@@ -70,6 +70,22 @@ class AddController extends Controller
     //store teacher edit data
     public function update(Request $request,$id){
 
+        $validator = Validator::make($request->all(), 
+        [
+            'name' => 'required',
+            'phone' => 'required|numeric',
+            'email' => 'required|unique:users',
+            'status'=>'required',
+            'photo'=>'required|image',
+                          
+        ]);
+ 
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         $inputs=[
             'name'=>$request->input('name'),
             'phone'=>$request->input('phone'),
@@ -79,6 +95,16 @@ class AddController extends Controller
 
         $teacher=Teacher::find($id);
         $teacher->update($inputs);
+
+        if(!empty($request->file('photo'))){
+            if(file_exists('uploads/teacher/'.$teacher->photo)){
+                unlink('uploads/teacher/'.$teacher->photo);
+                 }
+              $newName='teacher_'.time().'.'.$request->file('photo')->getClientOriginalExtension();
+           
+    $request->file('photo')->move('uploads/teacher',$newName);
+    $teacher->update(['photo'=>$newName]);
+          }
         return redirect()->route('admin.teacher');
 
  }
@@ -86,6 +112,9 @@ class AddController extends Controller
  //teacher data delete
  public function delete($id){
     $teacher=Teacher::find($id);
+    if(file_exists('uploads/teacher/'.$teacher->photo)){
+           unlink('uploads/teacher/'.$teacher->photo);
+            }
     $teacher->delete();
     return redirect()->route('admin.teacher');
 
